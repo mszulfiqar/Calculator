@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+      integrity="sha512-HXXR0l2yMwHDrDyxJbrMD9eLvPe3z3qL3PPeozNTsiHJEENxx8DH2CxmV05iwG0dwoz5n4gQZQyYLUNt1Wdgfg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #16151870;
+      }
+      .main {
+        width: 350px;
+        border: 1px solid transparent;
+        margin: 80px auto;
+        padding: 0px;
+        background-color: #0000;
+      }
+      .heading > p {
+        font-weight: bolder;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        margin-left: 8px;
+      }
+      .input-box {
+        height: 70px;
+        border: 1px solid transparent;
+        margin: 0px 4px;
+        margin-top: 7px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      input[type="text"] {
+        width: 100%;
+        height: 100%;
+        background-color: #16151870;
+        border: none;
+        color: #fff;
+        font-size: 40px;
+        text-align: right;
+        padding: 7px;
+        transition: background-color 0.4s;
+      }
+      input:focus {
+        border: none;
+        outline: none;
+        background-color: #000;
+      }
+      .buttons {
+        background-color: #42326570;
+        height: 100%;
+        width: 100%;
+        border: 1px solid transparent;
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+      .white {
+        background-color: #fff;
+      }
+      .purple {
+        background-color: rgb(60, 60, 70);
+      }
+      .one {
+        display: flex;
+      }
+      .number {
+        flex-basis: 22%;
+        border: 1px solid transparent;
+        box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.75);
+        border-radius: 10px;
+        margin: 10px;
+        text-align: center;
+        font-size: 30px;
+        transition: background-color 0.7s;
+        cursor: pointer;
+      }
+      .number:hover {
+        background-color: rgb(60, 61, 61);
+      }
+      .two {
+        display: flex;
+      }
+      .three {
+        display: flex;
+      }
+      .minus::after {
+        content: "";
+        width: 10px;
+        height: 5px;
+        background-color: black;
+        text-align: center;
+      }
+      .four {
+        display: flex;
+      }
+      .five {
+        display: flex;
+      }
+      .yu {
+        flex-basis: 50%;
+      }
+      .red {
+        background-color: rgb(191, 52, 52);
+      }
+      .ui {
+        background-color: #8863d870;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="heading">
+        <p>calculator</p>
+      </div>
+      <div class="input-box">
+        <input type="text" name="tex" id="text_0" spellcheck="false" />
+      </div>
+      <div class="buttons">
+        <div class="one">
+          <div class="number white" onclick="display(1)"><p>1</p></div>
+          <div class="number white" onclick="display(2)"><p>2</p></div>
+          <div class="number white" onclick="display(3)"><p>3</p></div>
+          <div class="number purple"><p>Del</p></div>
+        </div>
+        <div class="two">
+          <div class="number white" onclick="display(4)"><p>4</p></div>
+          <div class="number white" onclick="display(5)"><p>5</p></div>
+          <div class="number white" onclick="display(6)"><p>6</p></div>
+          <div class="number white" onclick="display('+')"><i class="ri-add-line"></i></div>
+        </div>
+        <div class="three">
+          <div class="number white" onclick="display(7)"><p>7</p></div>
+          <div class="number white" onclick="display(8)"><p>8</p></div>
+          <div class="number white" onclick="display(9)"><p>9</p></div>
+          <div class="number white minus" onclick="display('-')"><i class="ri-subtract-line"></i></div>
+        </div>
+        <div class="four">
+          <div class="number white" onclick="display('.')"><p>.</p></div>
+          <div class="number white" onclick="display(0)"><p>0</p></div>
+          <div class="number white" onclick="display('/')"><p>/</p></div>
+          <div class="number white " onclick="display('*')"><i id="x" class="fa-solid fa-xmark"></i></div>
+        </div>
+        <div class="five">
+          <div class="yu ui number white" onclick="cl()"><p>RESET</p></div>
+          <div class="number yu red" onclick="solve()">=</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function display(val){
+        document.querySelector("input").value += val;
+      }
+      function cl() {
+        document.getElementById("text_0").value = "";
+      }
+     function solve(){
+      let v = document.querySelector("input").value;
+      let u = eval(v);
+      document.querySelector("input").value = u;
+     }
+    </script>
+  </body>
+</html>
